@@ -1,3 +1,5 @@
+package it.learnandcode.tokenizer;
+
 import org.junit.Assert;
 import org.junit.Test;
 
