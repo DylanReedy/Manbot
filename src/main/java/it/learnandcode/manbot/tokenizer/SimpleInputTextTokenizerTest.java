@@ -1,4 +1,4 @@
-package it.learnandcode.tokenizer;
+package it.learnandcode.manbot.tokenizer;
 
 import org.junit.Assert;
 import org.junit.Test;

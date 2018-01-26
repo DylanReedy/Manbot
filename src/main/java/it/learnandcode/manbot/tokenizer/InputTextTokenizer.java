@@ -1,4 +1,4 @@
-package it.learnandcode.tokenizer;
+package it.learnandcode.manbot.tokenizer;
 
 import java.util.ArrayList;
 import java.util.List;
