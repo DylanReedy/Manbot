@@ -53,4 +53,31 @@ public class SimpleInputTextTokenizerTest {
         Assert.assertEquals(true, tokenizer.isCommandCandidate(testString));
     }
 
+    @Test
+    public void preWSTest(){
+        SimpleInputTextTokenizer tokenizer = new SimpleInputTextTokenizer();
+        String testString = "   !first and second";
+        ArrayList<String> expectedList = new ArrayList<String>(Arrays.asList("!first", "and", "second"));
+        Assert.assertArrayEquals(expectedList.toArray(),tokenizer.tokenize(testString).toArray());
+        Assert.assertEquals(true, tokenizer.isCommandCandidate(testString));
+    }
+
+    @Test
+    public void postWSTest(){
+        SimpleInputTextTokenizer tokenizer = new SimpleInputTextTokenizer();
+        String testString = "!first and second   ";
+        ArrayList<String> expectedList = new ArrayList<String>(Arrays.asList("!first", "and", "second"));
+        Assert.assertArrayEquals(expectedList.toArray(),tokenizer.tokenize(testString).toArray());
+        Assert.assertEquals(true, tokenizer.isCommandCandidate(testString));
+    }
+
+    @Test
+    public void midWSTest(){
+        SimpleInputTextTokenizer tokenizer = new SimpleInputTextTokenizer();
+        String testString = "!first    and    second   ";
+        ArrayList<String> expectedList = new ArrayList<String>(Arrays.asList("!first", "and", "second"));
+        Assert.assertArrayEquals(expectedList.toArray(),tokenizer.tokenize(testString).toArray());
+        Assert.assertEquals(true, tokenizer.isCommandCandidate(testString));
+    }
+
 }
