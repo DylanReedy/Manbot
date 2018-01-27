@@ -44,5 +44,13 @@ public class SimpleInputTextTokenizerTest {
         Assert.assertEquals(true, tokenizer.isCommandCandidate(testString));
     }
 
+    @Test
+    public void unpairedQuoteTest(){
+        SimpleInputTextTokenizer tokenizer = new SimpleInputTextTokenizer();
+        String testString = "!first second \"third and fourth";
+        ArrayList<String> expectedList = new ArrayList<String>(Arrays.asList("!first", "second", "third", "and", "fourth"));
+        Assert.assertArrayEquals(expectedList.toArray(),tokenizer.tokenize(testString).toArray());
+        Assert.assertEquals(true, tokenizer.isCommandCandidate(testString));
+    }
 
 }

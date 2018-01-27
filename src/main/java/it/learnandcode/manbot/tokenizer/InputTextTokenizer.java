@@ -4,6 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface InputTextTokenizer {
-    Boolean isCommandCandidate(String input);
+    boolean isCommandCandidate(String input);
     ArrayList<String> tokenize(String input);
 }
