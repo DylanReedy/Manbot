@@ -80,4 +80,14 @@ public class SimpleInputTextTokenizerTest {
         Assert.assertEquals(true, tokenizer.isCommandCandidate(testString));
     }
 
+    @Test
+    public void blankTest(){
+        SimpleInputTextTokenizer tokenizer = new SimpleInputTextTokenizer();
+        String testString = " ";
+        ArrayList<String> expectedList = new ArrayList<String>(Arrays.asList());
+        Assert.assertArrayEquals(expectedList.toArray(),tokenizer.tokenize(testString).toArray());
+        Assert.assertEquals(false, tokenizer.isCommandCandidate(testString));
+    }
+
+
 }
