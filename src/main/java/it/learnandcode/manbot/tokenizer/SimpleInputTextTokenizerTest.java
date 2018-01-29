@@ -89,5 +89,13 @@ public class SimpleInputTextTokenizerTest {
         Assert.assertEquals(false, tokenizer.isCommandCandidate(testString));
     }
 
+    @Test
+    public void strangeCharTest(){
+        SimpleInputTextTokenizer tokenizer = new SimpleInputTextTokenizer();
+        String testString = "first !second third";
+        ArrayList<String> expectedList = new ArrayList<String>(Arrays.asList("first", "!second", "third"));
+        Assert.assertArrayEquals(expectedList.toArray(),tokenizer.tokenize(testString).toArray());
+        Assert.assertEquals(false, tokenizer.isCommandCandidate(testString));
+    }
 
 }
