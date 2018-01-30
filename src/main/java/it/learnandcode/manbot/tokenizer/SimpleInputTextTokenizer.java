@@ -1,5 +1,7 @@
 package it.learnandcode.manbot.tokenizer;
 
+import com.sun.istack.internal.NotNull;
+
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,14 +12,13 @@ public class SimpleInputTextTokenizer implements InputTextTokenizer {
 
     /**
      *
-     * @param input Command candidates first non-ws character must be a '!'
      * @return Returns false if it finds no command indicator, true otherwise
      */
 
     @Override
-    public boolean isCommandCandidate(String input) {
+    public boolean isCommandCandidate(@NotNull String input) {
         String shortstring = input.trim();
-        if(input==null || shortstring.length() == 0){
+        if(shortstring.length() == 0){
             return false;
         }else{
             return shortstring.charAt(0) == '!';
