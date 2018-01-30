@@ -10,11 +10,6 @@ public class SimpleInputTextTokenizer implements InputTextTokenizer {
 
     Pattern pattern = Pattern.compile("[^\\s\"']+|\"([^\"]*)\"|'([^']*)'");
 
-    /**
-     *
-     * @return Returns false if it finds no command indicator, true otherwise
-     */
-
     @Override
     public boolean isCommandCandidate(@NotNull String input) {
         String shortstring = input.trim();
