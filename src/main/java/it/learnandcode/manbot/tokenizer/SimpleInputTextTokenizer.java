@@ -10,16 +10,17 @@ public class SimpleInputTextTokenizer implements InputTextTokenizer {
 
     /**
      *
-     * @param input must have at least one non-whitespace character
-     * @return determines whether or not the lead character of the input is a '!' character or not
+     * @param input Command candidates first non-ws character must be a '!'
+     * @return Returns false if it finds no command indicator, true otherwise
      */
 
     @Override
     public boolean isCommandCandidate(String input) {
-        if(input==null || input.trim().length() == 0){
+        String shortstring = input.trim();
+        if(input==null || shortstring.length() == 0){
             return false;
         }else{
-            return input.trim().charAt(0) == '!';
+            return shortstring.charAt(0) == '!';
         }
     }
 
@@ -28,15 +29,19 @@ public class SimpleInputTextTokenizer implements InputTextTokenizer {
         ArrayList<String> tokenizedMessage = new ArrayList<>();
         Matcher regexMatcher;
         regexMatcher = pattern.matcher(input);
-        while (regexMatcher.find()) {
-            if (regexMatcher.group(1) != null) {
-                // DQ_TOKEN
+        while (regexMatcher.find())
+        {
+            if (regexMatcher.group(1) != null)
+            {
+                //DQ_Token
                 tokenizedMessage.add(regexMatcher.group(1));
-            } else if (regexMatcher.group(2) != null) {
-                // SQ_TOKEN
+            }
+            else if (regexMatcher.group(2) != null) {
+                //SQ_Token
                 tokenizedMessage.add(regexMatcher.group(2));
-            } else {
-                // SIMPLE_TOKEN
+            }
+            else {
+                //Regular_Token
                 tokenizedMessage.add(regexMatcher.group());
             }
         }
