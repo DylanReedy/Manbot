@@ -11,7 +11,7 @@ public interface InputTextTokenizer {
      */
     boolean isCommandCandidate(String input);
     /**
-     * @input
+     * @param input Any non-null string
      * @return Returns false if it finds no command indicator, true otherwise
      */
     ArrayList<String> tokenize(String input);
