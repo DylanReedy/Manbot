@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface InputTextTokenizer {
     /**
-     * @input
+     * @param input Any non-null string
      * @return Returns a list of whitespace separated tokens.
      */
     boolean isCommandCandidate(String input);

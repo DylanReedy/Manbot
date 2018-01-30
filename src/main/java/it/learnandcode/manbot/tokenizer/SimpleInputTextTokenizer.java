@@ -1,7 +1,5 @@
 package it.learnandcode.manbot.tokenizer;
 
-import com.sun.istack.internal.NotNull;
-
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,7 +9,7 @@ public class SimpleInputTextTokenizer implements InputTextTokenizer {
     Pattern pattern = Pattern.compile("[^\\s\"']+|\"([^\"]*)\"|'([^']*)'");
 
     @Override
-    public boolean isCommandCandidate(@NotNull String input) {
+    public boolean isCommandCandidate(String input) {
         String shortstring = input.trim();
         if(shortstring.length() == 0){
             return false;
