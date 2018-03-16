@@ -1,6 +1,5 @@
-package TableObjects;
+package database.TableObjects;
 
-import java.util.ArrayList;
 
 public class RPUser {
 

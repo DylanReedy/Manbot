@@ -1,6 +1,8 @@
-import TableObjects.Project;
-import TableObjects.Status;
-import TableObjects.User;
+package database;
+
+import database.TableObjects.Project;
+import database.TableObjects.Status;
+import database.TableObjects.RPUser;
 import com.sun.prism.shader.Solid_TextureRGB_AlphaTest_Loader;
 
 import java.sql.*;

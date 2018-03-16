@@ -1,6 +1,8 @@
-import TableObjects.Project;
-import TableObjects.Status;
-import TableObjects.User;
+package database;
+
+import database.TableObjects.Project;
+import database.TableObjects.Status;
+import database.TableObjects.RPUser;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -150,8 +152,8 @@ public class ManbotDBHelper {
     }
 
     //user table methods
-    public User getUser(String name)throws SQLException{
-        User user = null;
+    public RPUser getUser(String name)throws SQLException{
+        RPUser user = null;
         try {
             conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
             statement = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
@@ -168,9 +170,9 @@ public class ManbotDBHelper {
         return user;
     }
 
-    User parseUser(ResultSet resultSet) throws SQLException {
+    RPUser parseUser(ResultSet resultSet) throws SQLException {
         resultSet.first();
-        User user = new User();
+        RPUser user = new RPUser();
         user.setHandle(resultSet.getString("handle"));
         user.setExperience(resultSet.getInt("experience"));
         user.setLanguage(resultSet.getString("language"));
@@ -178,7 +180,7 @@ public class ManbotDBHelper {
         return user;
     }
 
-    public String newUser(User user) throws SQLException{
+    public String newUser(RPUser user) throws SQLException{
         String message;
 
         try {
@@ -202,7 +204,7 @@ public class ManbotDBHelper {
             return message;
     }
 
-    String GetInsertUserStatement(User user){
+    String GetInsertUserStatement(RPUser user){
         String statement = String.format(String.format("INSERT INTO users VALUES ('%s','%s','%d','%s')",user.getHandle(),
             user.getLanguage(),user.getExperience(), user.getRole()));
         return statement;
@@ -210,7 +212,7 @@ public class ManbotDBHelper {
 
     //voting methods
     //TODO: voting will currently just add a user to a project list. checking the status of a vote will return the count on the users for a given project
-    public String castVote(User user, Project project) throws SQLException{
+    public String castVote(RPUser user, Project project) throws SQLException{
         String message;
 
         //verification requirements:

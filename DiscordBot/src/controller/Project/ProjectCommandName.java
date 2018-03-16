@@ -1,4 +1,4 @@
-package com.rapidprototyping.manbot.controller.Project;
+package controller.Project;
 
 public class ProjectCommandName {
     public static final String PROPOSE = "propose";

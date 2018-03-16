@@ -54,7 +54,8 @@ public class Welcome implements CommandHandler{
 				favLanguage = params[2];
 				
 				//TODO: push info to DB here
-				RPUser newUser = ManbotDBHelper.getUser(cmd.sender.getName());
+				RPUser newUser = new RPUser();
+				newUser = ManbotDBHelper.getUser(cmd.sender.getName());
 				if(newUser != null) {
 					cmd.channel.sendMessage(senderTag + " you seem to already be in our database, and it doesn't like duplicates. " + 
 						"If you don't think this is accurate then please contact one of the members of the Manbot Dev team to resolve this issue");

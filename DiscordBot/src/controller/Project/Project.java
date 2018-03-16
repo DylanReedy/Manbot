@@ -1,6 +1,7 @@
-package com.rapidprototyping.manbot.model.project;
+package controller.Project;
 
-import com.rapidprototyping.manbot.model.user.User;
+//imported User entity. Maybe we want this to be RPUser?
+import net.dv8tion.jda.core.entities.User;
 
 import java.util.List;
 
