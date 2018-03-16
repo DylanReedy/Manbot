@@ -2,7 +2,7 @@ package TableObjects;
 
 import java.util.ArrayList;
 
-public class User {
+public class RPUser {
 
     int experience;
     String handle;
@@ -10,14 +10,14 @@ public class User {
     String role;
 
 
-    public User(int experience, String handle, String language, String role){
+    public RPUser(int experience, String handle, String language, String role){
         this.experience = experience;
         this.handle = handle;
         this.language = language;
         this.role = role;
     }
 
-    public User(){}
+    public RPUser(){}
 
     public int getExperience() {
         return experience;
