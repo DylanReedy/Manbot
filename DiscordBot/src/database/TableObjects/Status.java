@@ -1,4 +1,4 @@
-package TableObjects;
+package database.TableObjects;
 
 public enum Status{
 

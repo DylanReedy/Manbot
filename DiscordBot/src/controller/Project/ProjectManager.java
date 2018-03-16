@@ -1,8 +1,6 @@
-package com.rapidprototyping.manbot.controller.Project;
-
-import com.rapidprototyping.manbot.controller.CommandContext;
-import com.rapidprototyping.manbot.controller.CommandHandler;
-import com.rapidprototyping.manbot.model.command.Command;
+package controller.Project;
+import com.rapidprototyping.Command.Command;
+import com.rapidprototyping.Command.CommandHandler;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -40,6 +38,7 @@ public class ProjectManager implements CommandHandler
         return null;
     }
 
+    //TODO: Replace 'CommandContext' object here
     @Override
     public void handle(CommandContext ctx) {
         String methodToCall = ctx.getCommand().getName().toLowerCase();
