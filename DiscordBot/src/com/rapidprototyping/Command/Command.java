@@ -4,7 +4,6 @@ import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.User;
 
-import java.util.List;
 
 public class Command
 {

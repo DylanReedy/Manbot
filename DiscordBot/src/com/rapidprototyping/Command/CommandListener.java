@@ -2,6 +2,8 @@ package com.rapidprototyping.Command;
 
 import com.rapidprototyping.Functions.DM;
 import com.rapidprototyping.Functions.PM;
+import com.rapidprototyping.Functions.Welcome;
+
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.User;
@@ -25,6 +27,7 @@ public class CommandListener extends ListenerAdapter
     private void initDefaults(){
         handlers.add(new PM());
         handlers.add(new DM());
+        handlers.add(new Welcome());
     }
 
     //Listens for messages across all Channels within the Programming Group
@@ -45,7 +48,7 @@ public class CommandListener extends ListenerAdapter
     //Listens for when new members join
     @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
-        handleMessage(event.getJDA(), event.getUser(), event.getGuild().getDefaultChannel(), "!welcome");
+        handleMessage(event.getJDA(), event.getUser(), event.getGuild().getDefaultChannel(), "!welcome NULL");
     }
 
     // checks validity of command then calls the relevant function

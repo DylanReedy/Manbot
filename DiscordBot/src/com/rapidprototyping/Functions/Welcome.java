@@ -2,6 +2,12 @@ package com.rapidprototyping.Functions;
 
 import com.rapidprototyping.Command.Command;
 import com.rapidprototyping.Command.CommandHandler;
+
+import net.dv8tion.jda.core.entities.User;
+
+import database.TableObjects.RPUser;
+import database.ManbotDBHelper;
+
 import java.lang.Integer;
 
 public class Welcome implements CommandHandler{
@@ -48,6 +54,19 @@ public class Welcome implements CommandHandler{
 				favLanguage = params[2];
 				
 				//TODO: push info to DB here
+				RPUser newUser = ManbotDBHelper.getUser(cmd.sender.getName());
+				if(newUser != null) {
+					cmd.channel.sendMessage(senderTag + " you seem to already be in our database, and it doesn't like duplicates. " + 
+						"If you don't think this is accurate then please contact one of the members of the Manbot Dev team to resolve this issue");
+					break;
+				}
+				
+				//populate new RPUser then add to the DB
+				newUser.setHandle();
+				newUser.setExperience();
+				newUser.setLanguage();
+				newUser.setRole();
+				ManbotDBHelper.newUser(newUser);
 				
 				if(yearsExperience >= 8) {
 					cmd.channel.sendMessage("Wow " + senderTag + " you seem to have a lot of experience! You have been placed in the Advanced group level" +
